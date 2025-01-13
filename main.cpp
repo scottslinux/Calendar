@@ -85,8 +85,7 @@ int main()
     if (choice=="b")    createcal(myCal);
     if (choice=="c")    loading(myCal);
 
-        else
-            std::cout<<"wawawa....\n\n\n";
+    
 
 
 

@@ -10,6 +10,7 @@ struct CalendarData     //keeping it simple for now
 {
     int month;
     int day;
+    int dayofWeek;  //0..Sat,1..Sun.......6.Fri
     int year;
 };
 

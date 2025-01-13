@@ -125,13 +125,15 @@ bool Calendar::leapcheck(int year)
                     if(daycounter>6) daycounter=0;
                     
                     TempDay.day=i;
+                    TempDay.dayofWeek=daycounter;
                     TempDay.month=month;
                     TempDay.year=year;
 
                     DAY.push_back(TempDay);
-                    std::cout<<"day # "<<calendarIndex++<<".."<<TempDay.month<<"/"<<TempDay.day<<
-                                "/"<<TempDay.year<<"\n";
+                    //std::cout<<"day # "<<calendarIndex++<<".."<<daynames[TempDay.dayofWeek]<<
+                      //  "\t"<<TempDay.month<<"/"<<TempDay.day<<"/"<<TempDay.year<<"\n";
 
+                    ++daycounter;
                     
 
                 }
@@ -141,9 +143,9 @@ bool Calendar::leapcheck(int year)
 
 
     }
-
+    //display the vector
     for(int i=0;i<DAY.size();i++)
-        std::cout<<"day # "<<i<<".."<<DAY[i].month<<"/"<<DAY[i].day<<
+        std::cout<<"day # "<<i<<".."<<daynames[DAY[i].dayofWeek]<<"\t"<<DAY[i].month<<"/"<<DAY[i].day<<
                                 "/"<<DAY[i].year<<"\n";
 
 

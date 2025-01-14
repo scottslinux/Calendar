@@ -36,9 +36,11 @@ int Calendar::DayfinderJan1(int month,int day,int year)
 
 
 Calendar::Calendar()  //constructor--creates a stretch of calendar dates based on the starting year
+    :monthnames{"January","February","March","April","May","June","July","August","September","October","November","December"},
+    daynames{"Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"}
 {
     
-   
+  /*
     daynames.push_back("Saturday");
     daynames.push_back("Sunday");
     daynames.push_back("Monday");
@@ -46,8 +48,23 @@ Calendar::Calendar()  //constructor--creates a stretch of calendar dates based o
     daynames.push_back("Wednesday");
     daynames.push_back("Thursday");
     daynames.push_back("Friday");
-    
-    
+   
+    monthnames.push_back("January");
+    monthnames.push_back("February");
+    monthnames.push_back("March");
+    monthnames.push_back("April");
+    monthnames.push_back("May");
+    monthnames.push_back("June");
+    monthnames.push_back("July");
+    monthnames.push_back("August");
+    monthnames.push_back("September");
+    monthnames.push_back("October");
+    monthnames.push_back("November");
+    monthnames.push_back("December");
+
+    */
+
+  
     
 }
 //==============================================================================
@@ -100,6 +117,8 @@ bool Calendar::leapcheck(int year)
 
 }
 //==============================================================================
+//                  ⁡⁣⁢⁣𝗖𝗿𝗲𝗮𝘁𝗲 𝗖𝗮𝗹𝗲𝗻𝗱𝗮𝗿 𝗶𝗻 𝘁𝗵𝗲 𝗩𝗲𝗰𝘁𝗼𝗿⁡
+
     void Calendar::loadCalendar(int startingyear,int duration)   //load it up 
 {
  //find the first day of the month
@@ -153,4 +172,50 @@ bool Calendar::leapcheck(int year)
 
 
 
+}
+//==============================================================================
+//                      ⁡⁣⁢⁣​‌‍‌ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣 𝔽𝕠𝕣𝕞𝕒𝕥 𝕆𝕦𝕥𝕡𝕦𝕥​⁡
+
+void Calendar::CalendarGrid(Calendar &myCal)     //
+{
+    int firstpos;
+    int size=myCal.DAY.size();      //how many dates are in the vector
+
+    std::cout<<"____________________________________________________\n";
+    std::cout<<"\t\t"<<monthnames[DAY[0].month-1]<<" "<<DAY[0].year<<"\n";
+    std::cout<<"____________________________________________________\n";
+
+    std::cout<<"Sun\tMon\tTue\tWed\tThu\tFri\tSat\n";
+    std::cout<<"____________________________________________________\n";
+    
+    // Decide where the 1st of the month should be positioned
+    //left margin is SUN 0 and right is SAT 6
+    int daycounter=0;
+
+    if (myCal.DAY[0].dayofWeek==0)  //adjust for no tabs
+        firstpos=0;
+        else
+            firstpos=myCal.DAY[0].dayofWeek-1;
+
+    for(int i=0;i<firstpos;i++) //tab over to that spot
+        std::cout<<"\t";
+
+    for(int weeks=0;weeks<5;weeks++)
+    {
+        for (int days=firstpos; days<7;days++)
+        {   
+            std::cout<<myCal.DAY[daycounter++].day<<"\t";
+
+        }
+        std::cout<<std::endl;
+        firstpos=0;
+
+    }
+    std::cout<<"____________________________________________________\n";
+
+    std::cout<<"\n\n\n\n";
+
+    
+
+    return;
 }

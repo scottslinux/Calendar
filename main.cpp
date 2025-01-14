@@ -2,6 +2,17 @@
 #include "Calendar.h"
 using namespace std;
 
+//==============================================================================
+void gridview(Calendar &myCal)
+{
+    system("clear");
+
+    myCal.CalendarGrid(myCal);
+
+    return;
+
+}
+//==============================================================================
 
 void daychecker(Calendar myCal)
 {
@@ -53,6 +64,7 @@ void loading(Calendar myCal)
     std::cin>>dur;
 
     myCal.loadCalendar(start,dur);
+    myCal.CalendarGrid(myCal);
 
     return;
 
@@ -75,6 +87,7 @@ int main()
     std::cout<<"a.  Check the day of the week for a given date\n";
     std::cout<<"b.  Construct a year and display the dates\n";
     std::cout<<"c.  Construct a Calendar and display the dates\n";
+    std::cout<<"d.  Gridview\n";
 
     std::cout<<"************************************************\n";
     std::cout<<"Enter Choice: ";
@@ -84,6 +97,7 @@ int main()
     if (choice=="a")    daychecker(myCal);
     if (choice=="b")    createcal(myCal);
     if (choice=="c")    loading(myCal);
+    if (choice=="d")    gridview(myCal);
 
     
 

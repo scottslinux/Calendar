@@ -64,7 +64,8 @@ void loading(Calendar myCal)
     std::cin>>dur;
 
     myCal.loadCalendar(start,dur);
-    myCal.CalendarGrid(myCal);
+    //myCal.CalendarGrid(myCal);
+    myCal.MultiCalendarGrid(myCal);
 
     return;
 

@@ -28,8 +28,8 @@ class Calendar
     
     std::vector<std::string> monthnames;
     std::vector<std::string> daynames;
-
-    std::vector<int> month_limits={31,28,31,30,31,30,31,31,30,31,30,31};
+    std::vector<int> month_limits;
+    
     
     bool leapyear=false;
 
@@ -40,6 +40,7 @@ class Calendar
     bool leapcheck(int year);   //return true only for leap years
     void loadCalendar(int startingyear,int duration);   //load it up 
     void CalendarGrid(Calendar &myCal);
+    void MultiCalendarGrid(Calendar &myCal);
     
     };
     
